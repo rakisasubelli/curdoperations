@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            This Angular Task one
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <h1>CURD operations in Angular JS</h1>
+        <table class="table table-sm">
+            <thead class="thead-default">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="value in itemsList">
+                    <td>
+                        {{value.firstName}}
+                    </td>
+                    <td>
+                        {{value.lastName}}
+                    </td>
+                    <td>
+                        {{value.city}}
+                    </td>
+                    <td>
+                        {{value.state}}
+                    </td>
+                    <td>
+                        <div class="btn btn-primary" ng-click="showEditRow($index, value)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+                    </td>
+                    <td>
+                        <div class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true" ng-click="removeItem(value.firstName)"></i></div>
+                    </td>                    
+                    
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type = "text" ng-model="firstName"></input>
+                    </td>
+                    <td>
+                        <input type = "text" ng-model="lastName"></input>
+                    </td>
+                    <td>
+                        <input type = "text" ng-model="city"></input>
+                    </td>
+                    <td>
+                        <input type = "text" ng-model="state"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Save or Update" ng-click="saveOrUpdate()"></input>
+                        <input type="button" value="Reset" ng-click="reset()"></input>
+                    </td>
+                </tr>                
+
+
+            </tbody>
+        </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/Angular_Learning/interviewtasks/taskone/app.js"></script>     
+    </body>
+</html>
