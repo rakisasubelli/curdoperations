@@ -12,17 +12,18 @@ app.controller("myCtrl", function ($scope){
         }
         $scope.reset();
     }
-     $scope.removeItem = function (firstName) {
-        var index = -1;
-        var comArr = eval($scope.itemsList);
-        console.log("The common arrat"+comArr);
-        for (let i=0; i<=comArr.length;i++){
-            if(comArr[i]['firstName'] === firstName) {
-                index = i;
-                break;
-            }
-        }
+     $scope.removeItem = function (index) {
+        // var index = -1;
+        // var comArr = eval($scope.itemsList);
+        // console.log("The common arrat"+comArr);
+        // for (let i=0; i<=comArr.length;i++){
+        //     if(comArr[i]['firstName'] === firstName) {
+        //         index = i;
+        //         break;
+        //     }
+        // }
         $scope.itemsList.splice(index,1);
+        $scope.reset();
      }
      $scope.showEditRow = function (rowIndex, row) {
         editRowIndex = rowIndex;
@@ -32,6 +33,7 @@ app.controller("myCtrl", function ($scope){
         $scope.state = row.state;
      }
      $scope.reset = function () {
+        editRowIndex = -1;
         $scope.firstName = '';
         $scope.lastName = '';
         $scope.city = '';
